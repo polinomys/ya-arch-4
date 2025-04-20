@@ -1,0 +1,34 @@
+1. Мотивация.
+- Выявление причин задержек и сбоев, снижение количества просроченных заказов;
+- Оперативный анализ нагрузки, профилактика инцидентов, планирование затрат для проведения работ по оптимизации инфраструктуры;
+- Снижение затрат на поддержку в целом;
+
+2. Выбор подхода к мониторингу.
+- RED для мониторинга HTTP-трафика и производительности операций ввода-вывода (например, БД);
+- USE для серверов приложений, БД и очереди сообщений;
+
+3. Метрики.
+3.1. Метрики производительности.
+- Number of requests (RPS) for internet shop API, Number of requests (RPS) for CRM API, Number of requests (RPS) for MES API - количество запросов в секунду;
+- Response time (latency) for shop API, Response time (latency) for CRM API, Response time (latency) for MES API - время, которое требуется для выполнения запроса;
+- Number of HTTP 200 for shop API,  Number of HTTP 200 for CRM API, Number of HTTP 200 for MES API - количество успешных запросов;
+- Number of HTTP 500 for shop API, Number of HTTP 500 for CRM API, Number of HTTP 500 for MES API - количество запросов, завершившихся ошибкой;
+- Number of dead-letter-exchange letters in RabbitMQ - считаем количество недоставленных сообщений (мониторинг Error);
+- Number of message in flight in RabbitMQ - считаем количество сообщений в очереди (мониторинг Saturation);
+
+3.2. Показатели системного уровня.
+- CPU % for shop API, CPU % for CRM API, CPU % for MES API - потребление ресурсов процессора;
+- Memory Utilisation for shop API, Memory Utilisation for CRM API, Memory Utilisation for MES API - потребление ресурсов памяти приложений;
+- Memory Utilisation for shop db instance, Memory Utilisation for MES db instance - потребление ресурсов памяти БД;
+- Size of S3 storage, Size of shop db instance,  Size of MES db instance  - потребление ресурсов диска БД;
+- Number of connections for shop db instance, Number of connections for MES db instance - количество коннектов к БД;
+
+4. План действий.
+- Подключить библиотеки для сбора метрик с приложений;
+- Настроить сбор метрик на существующих БД, RabbitMQ и S3;
+- Создать инстанс Prometheus Server;
+- Настроить агентов Prometheus для сбора показателей;
+- Настроить Grafana работы с показателями Prometheus;
+- Настроить алертинг;
+
+
